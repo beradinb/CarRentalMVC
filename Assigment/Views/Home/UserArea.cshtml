@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "UserArea";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rent a Car!</h2>
+@Html.ViewData["Message"]
+
+<div class="container">
+
+    <div class="table-responsive">
+
+        <table class="table table-hover">
+
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Car Make
+                </th>
+                <th>
+                    Car Model
+                </th>
+                <th>
+                    Cost Per Day/£
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Rent
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.Encode(item.Id)
+                    </td>
+                    <td>
+                        @Html.Encode(item.Make)
+                    </td>
+                    <td>
+                        @Html.Encode(item.Model)
+                    </td>
+                    <td>
+                        @Html.Encode(item.CostPD)
+                    </td>
+                    <td>
+                        @Html.Encode(item.Quantity)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Rent", "Rent", new { id = item.Id })
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+﻿@model Assigment.ViewModels.UserRegistrationVM
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<h2>Register</h2>
+@Html.Encode(ViewData["Message"])
+<div>
+        @using (@Html.BeginForm("Register", "User", FormMethod.Post)) //Notice the name of the controller method as part of BeginForm, this needs to be correct!
+        {
+            <fieldset>
+                <div>
+                    @Html.LabelFor(u => u.Firstname)
+                    @Html.ValidationMessageFor(u => u.Firstname)
+                    @Html.EditorFor(u => u.Firstname)
+                </div>
+                <div>
+                    @Html.LabelFor(u => u.Surname)
+                    @Html.ValidationMessageFor(u => u.Surname)
+                    @Html.EditorFor(u => u.Surname)
+                </div>
+                <div>
+                    @Html.LabelFor(u => u.Username)
+                    @Html.ValidationMessageFor(u => u.Username)
+                    @Html.EditorFor(u => u.Username)
+                </div>
+                <div>
+                    @Html.LabelFor(u => u.EmailAddress)
+                    @Html.ValidationMessageFor(u => u.EmailAddress)
+                    @Html.EditorFor(u => u.EmailAddress)
+                </div>
+                <div>
+                    @Html.LabelFor(u => u.Password)
+                    @Html.ValidationMessageFor(u => u.Password)
+                    @Html.PasswordFor(u => u.Password)
+                </div>
+                <input type="submit" value="Submit" />
+            </fieldset>}
+        @{Html.EndForm();}
+</div>

@@ -1,0 +1,33 @@
+﻿@model Assigment.Models.user
+@{
+    ViewBag.Title = "Create User";
+}
+<h2>Create</h2>
+<div>
+    @using (Html.BeginForm("CreateUser", "User", FormMethod.Post))
+    {
+        <fieldset>
+            <div>
+                @Html.LabelFor(u => u.Firstname)
+                @Html.EditorFor(u => u.Firstname)
+            </div>
+            <div>
+                @Html.LabelFor(u => u.Surname)
+                @Html.EditorFor(u => u.Surname)
+            </div>
+            <div>
+                @Html.LabelFor(u => u.Username)
+                @Html.EditorFor(u => u.Username)
+            </div>
+            <div>
+                @Html.LabelFor(u => u.EmailAddress)
+                @Html.EditorFor(u => u.EmailAddress)
+            </div>
+            <div>
+                @Html.LabelFor(u => u.Password)
+                @Html.PasswordFor(u => u.Password)
+            </div>
+            <input type="submit" value="Submit" />
+        </fieldset>}
+    @{Html.EndForm();}
+</div>

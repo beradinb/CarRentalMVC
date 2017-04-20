@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Rent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class=container>
+    <div class="container col-md-8\">
+        <div class="page-header">
+         <h1>Book @Html.Encode(Model.Make) @Html.Encode(Model.Model)</h1>
+        </div>
+
+        <div class=container>
+            <dl class=dl-horizontal>
+                <dt scope="row">Car ID</dt>
+                <dd>@Html.Encode(Model.Id)</dd>
+                <dt scope="row">Car Make</dt>
+                <dd>@Html.Encode(Model.Make)</dd>
+                <dt scope="row">Car Model</dt>
+                <dd>@Html.Encode(Model.Model)</dd>
+                <dt scope="row">Car Cost Per Day/£ </dt>
+                <dd>@Html.Encode(Model.CostPD)</dd>
+                <dt scope="row">Car Quantity</dt>
+                <dd>@Html.Encode(Model.Quantity)</dd>
+            </dl>
+            @using (Html.BeginForm())
+            {
+
+                <label>Pick up date: </label>
+                <input type="date" name="sday"/>
+                <label>Drop off date: </label>
+                <input type="date" name="eday"/>
+                <input type="submit" />
+            }
+        </div>
+        </div>
+    </div>

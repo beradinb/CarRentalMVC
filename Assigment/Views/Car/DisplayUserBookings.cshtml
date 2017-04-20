@@ -1,0 +1,56 @@
+﻿
+
+@{
+    ViewBag.Title = "DisplayUserBookings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Your Bookings</h2>
+
+<div class="container">
+
+    <div class="table-responsive">
+
+        <table class="table table-hover">
+
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    User ID
+                </th>
+                <th>
+                    Car ID
+                </th>
+                <th>
+                    Pick-Up Date
+                </th>
+                <th>
+                    Drop-Off Date
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.Encode(item.Id)
+                    </td>
+                    <td>
+                        @Html.Encode(item.userID)
+                    </td>
+                    <td>
+                        @Html.Encode(item.carID)
+                    </td>
+                    <td>
+                        @Html.Encode(item.startDay)
+                    </td>
+                    <td>
+                        @Html.Encode(item.endDay)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

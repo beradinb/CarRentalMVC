@@ -1,0 +1,44 @@
+﻿@model Assigment.ViewModels.CarVM
+@{
+    ViewBag.Title = "AddCar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<h2>Add Car</h2>
+@Html.Encode(ViewData["Message"])
+<div>
+    @using (@Html.BeginForm("AddCar", "Car", FormMethod.Post)) //Notice the name of the controller method as part of BeginForm, this needs to be correct!
+    {
+        <fieldset>
+            <div>
+                @Html.LabelFor(u => u.Make)
+                @Html.ValidationMessageFor(u => u.Make)
+                @Html.EditorFor(u => u.Make)
+            </div>
+            <div>
+                @Html.LabelFor(u => u.Model)
+                @Html.ValidationMessageFor(u => u.Model)
+                @Html.EditorFor(u => u.Model)
+            </div>
+            <div>
+                @Html.LabelFor(u => u.CostPD)
+                @Html.ValidationMessageFor(u => u.CostPD)
+                @Html.EditorFor(u => u.CostPD)
+            </div>
+            <div>
+                @Html.LabelFor(u => u.Quantity)
+                @Html.ValidationMessageFor(u => u.Quantity)
+                @Html.EditorFor(u => u.Quantity)
+            </div>
+            <input type="submit" value="Submit" />
+        </fieldset>}
+    @{Html.EndForm();}
+</div>
+
+
+
+
